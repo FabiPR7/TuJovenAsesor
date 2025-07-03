@@ -1,0 +1,393 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      .mobile-menu { display: none; }
+      @media (max-width: 768px) {
+        html {
+          font-size: 16px;
+        }
+        .desktop-menu { display: none !important; }
+        .mobile-menu { display: flex !important; }
+      }
+      .p-4, .sm\:p-6, .sm\:p-8 {
+        padding: 0.5rem !important;
+      }
+      .gap-4, .gap-6 {
+        gap: 0.5rem !important;
+      }
+      .text-base, .sm\:text-lg, .text-sm, .sm\:text-sm {
+        font-size: 0.9rem !important;
+      }
+      .text-xs {
+        font-size: 0.8rem !important;
+      }
+      .text-lg, .sm\:text-xl {
+        font-size: 1rem !important;
+      }
+      .text-4xl, .sm\:text-5xl {
+        font-size: 1.2rem !important;
+      }
+      .flip-card {
+        perspective: 1000px;
+      }
+      .flip-card-inner {
+        transition: transform 0.6s cubic-bezier(.4,2,.6,1);
+        transform-style: preserve-3d;
+        position: relative;
+      }
+      .flip-card-front, .flip-card-back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+      }
+      .flip-card-front {
+        z-index: 2;
+      }
+      .flip-card-back {
+        transform: rotateY(180deg);
+        background: #4dbf38;
+        color: #fff;
+        border-radius: 0.75rem;
+        box-shadow: 0 2px 8px 0 #0001;
+        padding: 1.2rem;
+      }
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col px-2 sm:px-4 md:px-10">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f2f4f1] px-2 sm:px-4 md:px-10 py-3">
+          <div class="flex items-center gap-4 text-[#131612]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#131612] text-lg font-bold leading-tight tracking-[-0.015em]">Tu Joven Asesor</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-4 sm:gap-8">
+            <!-- Menú de escritorio -->
+            <div class="flex items-center gap-9 desktop-menu">
+              <a class="text-[#131612] text-sm font-medium leading-normal" href="#home">Inicio</a>
+              <a class="text-[#131612] text-sm font-medium leading-normal" href="#about">Acerca de</a>
+              <a class="text-[#131612] text-sm font-medium leading-normal" href="#services">Servicios</a>
+              <a class="text-[#131612] text-sm font-medium leading-normal" href="#contact">Contacto</a>
+            </div>
+            <!-- Menú hamburguesa móvil -->
+            <div class="mobile-menu items-center">
+              <button id="menu-toggle" class="flex items-center px-3 py-2 border rounded text-[#131612] border-[#91d279]">
+                <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+              </button>
+              <div id="mobile-nav" class="hidden absolute right-4 top-16 bg-white rounded-xl shadow-lg flex-col gap-4 p-4 z-50">
+                <a class="block text-[#131612] text-base font-medium py-2" href="#home">Inicio</a>
+                <a class="block text-[#131612] text-base font-medium py-2" href="#about">Acerca de</a>
+                <a class="block text-[#131612] text-base font-medium py-2" href="#services">Servicios</a>
+                <a class="block text-[#131612] text-base font-medium py-2" href="#contact">Contacto</a>
+              </div>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#4dbf38] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
+            >
+              <span class="truncate">Solicitar Cotización</span>
+            </button>
+          </div>
+        </header>
+        <div class="px-2 sm:px-4 md:px-10 flex flex-1 justify-center py-3 sm:py-5">
+          <div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA0vYB_WFkyB8ab08NPp5zo6YN3y-mU8dTfWQGtJ9UE0d5Pra_f2_ZbK9_Ks0tx6QpyYXGmmRq2jewzXswXQpHpbplcrqfd1mguWGtN-r76DRHS3r_5wZbOJqOJaHwIaFjVyW7k4X6u4hE0_SItZ_sobuuYnjwZvYjLrnvjih1E_Yxfm3RUpvLjVjl9R6B-DmK8MT1l7vN_jlZ_1febGbAG8ijgyZSSyoa9aUZJ3OZE6NtXg0wY7GcbPtHy9aCfTt-qtlfH9V9OOzs");'
+                >
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Asegura más, pagando menos.
+                    </h1>
+                    <h2 class="text-white text-base sm:text-lg font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Soluciones de seguros integrales adaptadas a tus necesidades. Desde hogar hasta vida, te tenemos cubierto.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#4dbf38] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
+                  >
+                    <span class="truncate">
+                         Cotización</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#131612] text-[22px] font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5" id="services">Nuestras Soluciones de Seguros</h2>
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-2 sm:p-4">
+              <!-- Seguro de Hogar -->
+              <div class="flip-card bg-[#4dbf38] rounded-xl p-6 gap-3 shadow-sm relative min-h-[220px]" tabindex="0">
+                <div class="flip-card-inner w-full h-full">
+                  <div class="flip-card-front flex flex-col items-center justify-center w-full h-full">
+                    <div class="mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6" /></svg>
+                    </div>
+                    <p class="text-white text-base font-bold leading-tight">Seguro de Hogar</p>
+                    <p class="text-white text-sm font-normal leading-normal text-center">Protege tu hogar y pertenencias ante eventos inesperados como incendios, robos y desastres naturales.</p>
+                  </div>
+                  <div class="flip-card-back flex flex-col items-center justify-center w-full h-full">
+                    <p class="font-bold mb-2 text-white">Coberturas:</p>
+                    <ul class="list-disc list-inside text-left text-sm text-white">
+                      <li>Incendio, robo y daños por agua</li>
+                      <li>Responsabilidad civil</li>
+                      <li>Asistencia 24h</li>
+                      <li>Daños eléctricos y fenómenos naturales</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Seguro Familiar -->
+              <div class="flip-card bg-[#4dbf38] rounded-xl p-6 gap-3 shadow-sm relative min-h-[220px]" tabindex="0">
+                <div class="flip-card-inner w-full h-full">
+                  <div class="flip-card-front flex flex-col items-center justify-center w-full h-full">
+                    <div class="mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7a3 3 0 11-6 0 3 3 0 016 0zM17 8a2 2 0 11-4 0 2 2 0 014 0zM7 8a2 2 0 11-4 0 2 2 0 014 0zM5 13a3 3 0 016 0v1H5v-1zM15 13a3 3 0 00-2.83 2h5.66A3 3 0 0015 13z" /></svg>
+                    </div>
+                    <p class="text-white text-base font-bold leading-tight">Seguro Familiar</p>
+                    <p class="text-white text-sm font-normal leading-normal text-center">Asegura la estabilidad financiera de tus seres queridos con planes de seguro familiar integrales.</p>
+                  </div>
+                  <div class="flip-card-back flex flex-col items-center justify-center w-full h-full">
+                    <p class="font-bold mb-2 text-white">Coberturas:</p>
+                    <ul class="list-disc list-inside text-left text-sm text-white">
+                      <li>Seguro de vida</li>
+                      <li>Seguro de incapacidad</li>
+                      <li>Seguro de educación</li>
+                      <li>Seguro de jubilación</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Seguro de Vida -->
+              <div class="flip-card bg-[#4dbf38] rounded-xl p-6 gap-3 shadow-sm relative min-h-[220px]" tabindex="0">
+                <div class="flip-card-inner w-full h-full">
+                  <div class="flip-card-front flex flex-col items-center justify-center w-full h-full">
+                    <div class="mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z" /></svg>
+                    </div>
+                    <p class="text-white text-base font-bold leading-tight">Seguro de Vida</p>
+                    <p class="text-white text-sm font-normal leading-normal text-center">Asegura el futuro de tu familia con pólizas de vida que brindan protección financiera en caso de fallecimiento.</p>
+                  </div>
+                  <div class="flip-card-back flex flex-col items-center justify-center w-full h-full">
+                    <p class="font-bold mb-2 text-white">Coberturas:</p>
+                    <ul class="list-disc list-inside text-left text-sm text-white">
+                      <li>Seguro de vida</li>
+                      <li>Seguro de incapacidad</li>
+                      <li>Seguro de educación</li>
+                      <li>Seguro de jubilación</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Seguro de Accidentes -->
+              <div class="flip-card bg-[#4dbf38] rounded-xl p-6 gap-3 shadow-sm relative min-h-[220px]" tabindex="0">
+                <div class="flip-card-inner w-full h-full">
+                  <div class="flip-card-front flex flex-col items-center justify-center w-full h-full">
+                    <div class="mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.257 3.099c.366-.446.957-.532 1.403-.166l7 5.732c.446.366.532.957.166 1.403l-7 8.5a1 1 0 01-1.569-1.237l6.293-7.645-6.293-5.153A1 1 0 018.257 3.1z" /></svg>
+                    </div>
+                    <p class="text-white text-base font-bold leading-tight">Seguro de Accidentes</p>
+                    <p class="text-white text-sm font-normal leading-normal text-center">Obtén apoyo financiero en caso de accidentes, cubriendo gastos médicos y pérdida de ingresos.</p>
+                  </div>
+                  <div class="flip-card-back flex flex-col items-center justify-center w-full h-full">
+                    <p class="font-bold mb-2 text-white">Coberturas:</p>
+                    <ul class="list-disc list-inside text-left text-sm text-white">
+                      <li>Seguro de accidentes</li>
+                      <li>Seguro de enfermedad</li>
+                      <li>Seguro de maternidad</li>
+                      <li>Seguro de invalidez</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Seguro para Mascotas -->
+              <div class="flip-card bg-[#4dbf38] rounded-xl p-6 gap-3 shadow-sm relative min-h-[220px]" tabindex="0">
+                <div class="flip-card-inner w-full h-full">
+                  <div class="flip-card-front flex flex-col items-center justify-center w-full h-full">
+                    <div class="mb-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-7V7a1 1 0 112 0v4a1 1 0 01-2 0zm1 4a1 1 0 100-2 1 1 0 000 2z" /></svg>
+                    </div>
+                    <p class="text-white text-base font-bold leading-tight">Seguro para Mascotas</p>
+                    <p class="text-white text-sm font-normal leading-normal text-center">Cubre los gastos médicos de tu mascota con planes de seguro que garantizan la mejor atención.</p>
+                  </div>
+                  <div class="flip-card-back flex flex-col items-center justify-center w-full h-full">
+                    <p class="font-bold mb-2 text-white">Coberturas:</p>
+                    <ul class="list-disc list-inside text-left text-sm text-white">
+                      <li>Seguro de salud</li>
+                      <li>Seguro de accidentes</li>
+                      <li>Seguro de enfermedad</li>
+                      <li>Seguro de vacunación</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-[#131612] text-[26px] sm:text-[32px] font-extrabold leading-tight tracking-[-0.02em] px-2 sm:px-4 pb-3 pt-5 flex items-center gap-2" id="about">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#4dbf38]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/></svg>
+              Acerca de
+            </h2>
+            <div class="relative bg-[#f2f4f1] rounded-xl p-4 sm:p-8 mb-8 shadow-xl border-l-8 border-[#4dbf38] flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <div class="flex-shrink-0 flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#4dbf38] shadow-md mb-2 sm:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+              </div>
+              <div class="w-full">
+                <p class="text-[#131612] text-base sm:text-xl font-semibold leading-relaxed mb-2">Asesor de Seguros</p>
+                <p class="text-[#131612] text-base font-normal leading-relaxed">
+                  <span class="font-bold text-[#4dbf38]">Mi prioridad es ayudarte</span> a proteger tu futuro y el de tu familia. No me interesan las comisiones, sino encontrar siempre la mejor opción y el mejor precio posible para ti, adaptándome a tus necesidades reales.<br class="hidden sm:block" />
+                  Creo firmemente en la <span class="font-bold text-[#4dbf38]">prevención</span> y en brindar tranquilidad, ayudando a evitar gastos inesperados y asegurando que recibas la protección que mereces.<br class="hidden sm:block" />
+                  Mi objetivo es que te sientas acompañado y seguro, sabiendo que cuentas con un asesor honesto que realmente busca lo mejor para ti.
+                </p>
+              </div>
+            </div>
+            <h2 class="text-[#131612] text-[22px] font-bold leading-tight tracking-[-0.015em] px-2 sm:px-4 pb-3 pt-5" id="testimonios">Clientes felices</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-1 sm:px-0 mb-8">
+              <!-- Reseña 1 -->
+              <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center text-center border border-[#e5e7eb]">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#4dbf38] flex items-center justify-center mb-2 sm:mb-3">
+                  <svg xmlns='http://www.w3.org/2000/svg' class='w-7 h-7 sm:w-8 sm:h-8 text-white' fill='currentColor' viewBox='0 0 20 20'><path d='M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z'/></svg>
+                </div>
+                <p class="text-[#131612] text-base sm:text-lg font-semibold">María López</p>
+                <p class="text-[#4dbf38] text-xs sm:text-sm font-medium mb-1 sm:mb-2">Empleada pública</p>
+                <p class="text-[#131612] text-xs sm:text-sm italic">"Con este asesor ahora tengo más coberturas y pago mucho menos que antes. Se nota que realmente se preocupa por sus clientes y no por vender por vender. ¡Recomendadísimo!"</p>
+              </div>
+              <!-- Reseña 2 -->
+              <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center text-center border border-[#e5e7eb]">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#4dbf38] flex items-center justify-center mb-2 sm:mb-3">
+                  <svg xmlns='http://www.w3.org/2000/svg' class='w-7 h-7 sm:w-8 sm:h-8 text-white' fill='currentColor' viewBox='0 0 20 20'><path d='M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z'/></svg>
+                </div>
+                <p class="text-[#131612] text-base sm:text-lg font-semibold">Carlos Ramírez</p>
+                <p class="text-[#4dbf38] text-xs sm:text-sm font-medium mb-1 sm:mb-2">Autónomo</p>
+                <p class="text-[#131612] text-xs sm:text-sm italic">"Me explicó todo con mucha claridad y buscó la mejor opción para mi negocio. Ahora estoy más tranquilo y además ahorro cada mes. ¡Un trato de 10!"</p>
+              </div>
+              <!-- Reseña 3 -->
+              <div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 flex flex-col items-center text-center border border-[#e5e7eb]">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#4dbf38] flex items-center justify-center mb-2 sm:mb-3">
+                  <svg xmlns='http://www.w3.org/2000/svg' class='w-7 h-7 sm:w-8 sm:h-8 text-white' fill='currentColor' viewBox='0 0 20 20'><path d='M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z'/></svg>
+                </div>
+                <p class="text-[#131612] text-base sm:text-lg font-semibold">Lucía Fernández</p>
+                <p class="text-[#4dbf38] text-xs sm:text-sm font-medium mb-1 sm:mb-2">Madre de familia</p>
+                <p class="text-[#131612] text-xs sm:text-sm italic">"Gracias a su ayuda, mi familia y yo estamos mucho mejor cubiertos y pagamos menos. Se nota que le importa de verdad ayudar y no solo vender. ¡Muy agradecida!"</p>
+              </div>
+            </div>
+            <h2 class="text-[#131612] text-[26px] sm:text-[32px] font-extrabold leading-tight tracking-[-0.02em] px-2 sm:px-4 pb-3 pt-5 flex items-center gap-2" id="contact">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#4dbf38]" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+              Contacto
+            </h2>
+            <div class="relative bg-[#f2f4f1] rounded-xl p-4 sm:p-8 mb-8 shadow-xl border-l-8 border-[#4dbf38] flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+              <div class="flex-shrink-0 flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#4dbf38] shadow-md mb-2 sm:mb-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 sm:w-12 sm:h-12 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+              </div>
+              <div class="w-full">
+                <p class="text-[#131612] text-base sm:text-xl font-semibold leading-relaxed mb-2">
+                  ¿Tienes curiosidad o dudas? <span class="text-[#4dbf38] font-bold">¡Sin compromiso!</span><br>
+                  Si quieres saber más, escríbeme o llámame con total confianza. Estoy aquí para ayudarte y responder cualquier pregunta que tengas. Envíame lo que quieras saber a cualquiera de estos datos:
+                </p>
+                <div class="flex flex-col gap-3 sm:gap-2">
+                  <div class="flex items-center gap-2 text-base sm:text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#4dbf38]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13l-1.293 2.293a1 1 0 00.217 1.32l.083.07a1 1 0 001.32-.217L9 15h6l1.293 2.293a1 1 0 001.32.217l.083-.07a1 1 0 00.217-1.32L17 13M7 13V6a1 1 0 011-1h8a1 1 0 011 1v7" /></svg>
+                    <span class="text-[#131612] text-base font-medium">Teléfono:</span>
+                    <a href="tel:630470792" class="text-[#4dbf38] text-base font-bold underline hover:text-[#388c28] transition-colors">630470792</a>
+                  </div>
+                  <div class="flex items-center gap-2 text-base sm:text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-[#4dbf38]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm-8 0V8a4 4 0 018 0v4" /></svg>
+                    <span class="text-[#131612] text-base font-medium">Correo:</span>
+                    <a href="mailto:tujovenasesor@gmail.com" class="text-[#4dbf38] text-base font-bold underline hover:text-[#388c28] transition-colors">tujovenasesor@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="flex justify-center px-2 sm:px-4">
+          <div class="flex w-full max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-2 sm:px-5 py-6 sm:py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a class="text-[#70816a] text-base font-normal leading-normal min-w-40" href="#">Política de Privacidad</a>
+                <a class="text-[#70816a] text-base font-normal leading-normal min-w-40" href="#">Términos de Servicio</a>
+                <a class="text-[#70816a] text-base font-normal leading-normal min-w-40" href="#">Contacto</a>
+              </div>
+              <p class="text-[#70816a] text-base font-normal leading-normal">© 2024 Tu Joven Asesor. Todos los derechos reservados.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script>
+      // Menú hamburguesa
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('hidden');
+        });
+        // Cerrar menú al hacer click en un enlace
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+          });
+        });
+      }
+      // Flip en móvil/click solo para tarjetas de servicios
+      function enableFlipCards() {
+        document.querySelectorAll('.flip-card').forEach(card => {
+          // Evitar duplicar listeners
+          card.onclick = null;
+          card.onkeypress = null;
+          card.ontouchstart = null;
+          card.addEventListener('click', function(e) {
+            if(window.innerWidth <= 768) {
+              this.classList.toggle('flipped');
+            }
+          });
+          card.addEventListener('touchstart', function(e) {
+            if(window.innerWidth <= 768) {
+              this.classList.toggle('flipped');
+              // Evitar doble trigger con click
+              e.preventDefault();
+            }
+          }, {passive: false});
+          card.addEventListener('keypress', function(e) {
+            if(window.innerWidth <= 768 && (e.key === 'Enter' || e.key === ' ')) {
+              this.classList.toggle('flipped');
+            }
+          });
+        });
+      }
+      enableFlipCards();
+      window.addEventListener('resize', enableFlipCards);
+    </script>
+  </body>
+</html>
