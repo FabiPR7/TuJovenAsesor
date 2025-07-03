@@ -4,8 +4,13 @@
 .mobile-menu { display: none; }
 @media (max-width: 768px) {
   html { font-size: 17px; }
-  .desktop-menu { display: none; }
-  .mobile-menu { display: flex; }
+  .desktop-menu,
+  .desktop-cta {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: flex !important;
+  }
   .layout-content-container, .layout-container { padding-left: 0; padding-right: 0; }
   .p-4, .sm\:p-6, .sm\:p-8, [class*="p-4"], [class*="p-6"], [class*="p-8"] { padding: 1rem; }
   .gap-4, .gap-6, [class*="gap-4"], [class*="gap-6"] { gap: 1rem; }
